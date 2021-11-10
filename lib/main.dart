@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_state_management/provider/cart_notifier.dart';
-import 'package:flutter_state_management/provider2/products_route.dart';
 import 'package:flutter_state_management/provider_api/accounts_route.dart';
 import 'package:provider/provider.dart';
-
-import 'provider/provider_route.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

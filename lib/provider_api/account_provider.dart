@@ -1,5 +1,8 @@
 import 'dart:collection';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import 'loading_provider.dart';
 
 class Account {
   int? acntNo;
@@ -19,6 +22,10 @@ class AccountProvider with ChangeNotifier {
   }
 
   // State - Attributes
+  bool _loading = false;
+
+  bool get loading => _loading;
+
   final List<Account> _acntList = [
     Account()
       ..acntNo = 1
@@ -40,15 +47,34 @@ class AccountProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> fetchAcntList() async {
+  Future<void> fetchAcntList(context, loadingProvider) async {
     var acnt = Account()
       ..acntNo = 2
       ..acntName = 'Test2';
 
+    // Loading
+    loadingProvider.toggle(true);
+    _loading = true;
+
     await Future.delayed(const Duration(milliseconds: 5000));
 
-    _acntList.add(acnt);
-    _acntList.add(acnt);
+    if (false) {
+      _acntList.add(acnt);
+      _acntList.add(acnt);
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text('Failed'),
+          content: Text('No data'),
+        ),
+      );
+    }
+
+    // Loading
+    loadingProvider.toggle(false);
+    _loading = false;
+
     notifyListeners();
   }
 }
