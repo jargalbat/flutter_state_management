@@ -11,8 +11,8 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        // ChangeNotifierProvider(create: (_) => CartNotifier()),
-        ChangeNotifierProvider(create: (_) => LoadingProvider()),
+        ChangeNotifierProvider(create: (_) => CartNotifier()),
+        // ChangeNotifierProvider(create: (_) => LoadingProvider()),
       ],
       child: const MyApp(),
     ),
