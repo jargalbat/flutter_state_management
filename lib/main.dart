@@ -3,13 +3,16 @@ import 'package:flutter_state_management/provider/cart_notifier.dart';
 import 'package:flutter_state_management/provider_api/accounts_route.dart';
 import 'package:provider/provider.dart';
 
+import 'provider_api/loading_provider.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => CartNotifier()),
+        // ChangeNotifierProvider(create: (_) => CartNotifier()),
+        ChangeNotifierProvider(create: (_) => LoadingProvider()),
       ],
       child: const MyApp(),
     ),

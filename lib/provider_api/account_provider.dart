@@ -56,9 +56,9 @@ class AccountProvider with ChangeNotifier {
     loadingProvider.toggle(true);
     _loading = true;
 
-    await Future.delayed(const Duration(milliseconds: 5000));
+    await Future.delayed(const Duration(milliseconds: 1000));
 
-    if (false) {
+    if (true) {
       _acntList.add(acnt);
       _acntList.add(acnt);
     } else {
